@@ -1,3 +1,4 @@
-<h1>
-  {{title}}
-</h1>
+<ace-editor [source]="'var x = 5;'"
+			(onBuild)="onBuild($event)"></ace-editor>
+
+<output-panel [jsSource]="js"></output-panel>
