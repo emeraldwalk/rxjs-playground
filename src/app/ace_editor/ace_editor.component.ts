@@ -1,8 +1,9 @@
 import { Component, Input, Output, ElementRef, OnInit, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
 
-import * as x from 'typescript';
-declare let ts: typeof x;
+// Hack: Not sure why this doesn't just work an an import * as ts from 'typescript';
+import * as typescript from 'typescript';
+declare let ts: typeof typescript;
 
 @Component({
 	selector: 'ace-editor',
@@ -10,7 +11,7 @@ declare let ts: typeof x;
 	styles: [`:host {
 		display: block;
 		float: left;
-		width: 500px;
+		width: 50%;
 		height: 400px;
 	}`]
 })
@@ -29,7 +30,7 @@ export class AceEditorComponent implements OnInit {
 		this._editor = ace.edit(elementRef.nativeElement);
 		this._session = this._editor.getSession();
 
-		this._editor.setTheme('ace/theme/twilight');
+		this._editor.setTheme('ace/theme/chrome');
 		this._editor.$blockScrolling = Infinity;
 		this._session.setMode('ace/mode/typescript');
 

@@ -7,7 +7,7 @@ import * as $ from 'jquery';
 	styles: [`:host {
 		display: block;
 		float: left;
-		width: 500px;
+		width: 50%;
 		height: 400px;
 	}`]
 })
@@ -39,6 +39,16 @@ export class OutputPanelComponent implements OnChanges {
 			});
 
 		this._$headEl.append(`<script type="text/javascript">window.onerror = function(msg) { document.writeln(msg) };</script>`);
-		this._$headEl.append(`<script type="text/javascript">${this.jsSource}</script>`);
+		this._$headEl.append(`<script type="text/javascript">
+			var console = {
+				log: function() {
+					let args = Array.prototype.slice.call(arguments);
+					let str = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : arg).join(', ');
+					document.writeln(str);
+				}
+			}
+			document.writeln('<pre>');
+			${this.jsSource}
+			document.writeln('</pre>');</script>`);
 	}
 }

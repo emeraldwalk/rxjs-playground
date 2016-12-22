@@ -24,7 +24,7 @@
         "../node_modules/typescript/lib/typescript.js",
         "../node_modules/ace-builds/src-min/ace.js",
         "../node_modules/ace-builds/src-min/mode-typescript.js",
-        "../node_modules/ace-builds/src-min/theme-twilight.js"
+        "../node_modules/ace-builds/src-min/theme-chrome.js"
       ],
       "environments": {
         "source": "environments/environment.ts",
