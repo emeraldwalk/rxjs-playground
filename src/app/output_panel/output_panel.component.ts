@@ -24,13 +24,13 @@ export class OutputPanelComponent implements OnChanges {
 	}
 
 	ngOnChanges(): void {
+		//this._$iframeEl.empty();
 		let iElementRaw: HTMLIFrameElement = <HTMLIFrameElement>this._$iframeEl.get(0);
 
-		//this._$iframeEl.height(0);
 		this._$headEl = this._$iframeEl.contents().find('head').empty();
 		this._$bodyEl = this._$iframeEl.contents().find('body').empty();
 
-		['https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.0.1/Rx.min.js'].forEach(url => {
+		['assets/rx.min.js'].forEach(url => {
 				// creating script tags via jQuery doesn't load the scripts, so have to use createElement
 				var script = iElementRaw.contentWindow.document.createElement('script');
 				script.type = "text/javascript";
@@ -47,8 +47,10 @@ export class OutputPanelComponent implements OnChanges {
 					document.writeln(str);
 				}
 			}
+			document.open();
 			document.writeln('<pre>');
 			${this.jsSource}
-			document.writeln('</pre>');</script>`);
+			document.writeln('</pre>');
+			document.close();</script>`);
 	}
 }
