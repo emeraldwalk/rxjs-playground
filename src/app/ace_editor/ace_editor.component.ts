@@ -37,7 +37,6 @@ export class AceEditorComponent implements OnInit {
 		this._sourceSubject
 			.debounceTime(700)
 			.subscribe(value => {
-				console.log(value);
 				let js = ts.transpile(value, {
 					target: ts.ScriptTarget.ES5
 				});
