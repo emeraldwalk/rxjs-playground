@@ -30,7 +30,7 @@ export class OutputPanelComponent implements OnChanges {
 		this._$headEl = this._$iframeEl.contents().find('head').empty();
 		this._$bodyEl = this._$iframeEl.contents().find('body').empty();
 
-		['assets/rx.min.js'].forEach(url => {
+		['assets/Rx.min.js'].forEach(url => {
 				// creating script tags via jQuery doesn't load the scripts, so have to use createElement
 				var script = iElementRaw.contentWindow.document.createElement('script');
 				script.type = "text/javascript";
