@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+.main.container, .footer {
+	margin-top: 1em;
+}
+.clearer {
+	clear: both;
+}
 iframe {
 	width: 100%;
 	height: 100%;

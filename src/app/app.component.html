@@ -1,5 +1,17 @@
-<h1>RxJS Playground</h1>
-<ace-editor [source]="initialSource"
-			(onBuild)="onBuild($event)"></ace-editor>
+<div class="ui vertical segment">
+	<div class="ui container">
+		<div class="ui pointing menu">
+			<a class="item active" href="/">RxJS Playground</a>
+		</div>
+	</div>
+	<div class="ui main container">
+		<ace-editor [source]="initialSource"
+					(onBuild)="onBuild($event)"></ace-editor>
 
-<output-panel [jsSource]="js"></output-panel>
+		<output-panel [jsSource]="js"></output-panel>
+		<div class="clearer"></div>
+	</div>
+	<div class="ui container footer">
+		Copyright © 2016 Emeraldwalk - All Rights Reserved
+	</div>
+</div>
