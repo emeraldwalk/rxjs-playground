@@ -1,31 +1,25 @@
 # RxjsPlayground
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.
+This playground can be used to experiment with RxJS. Simply write RxJS code in the editor, and it will run automatically.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Features
+* TypeScript support - The TypeScript compiler is invoked on all content, so you can write in `.js` or `.ts`
+* console.log has been redirected so that you can log to the output panel by using console.log
 
-## Code scaffolding
+### Example
+The following will output `1 2 3` to the output panel.
+```typescript
+let subject = new Rx.Subject<number>();
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+subject.subscribe(res => {
+    console.log(res));
+}
 
-## Build
+[1, 2, 3].forEach(i => {
+    subject.next(i);
+});
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to Github Pages
-
-Run `ng github-pages:deploy` to deploy to Github Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+// 1
+// 2
+// 3
+```
